@@ -152,7 +152,7 @@ public class PersonaDAO {
 		return p;
 	}
 	
-	public void updatePersona(Persona p) throws BaseException
+	public void updatePersona(Persona p, String id) throws BaseException
 	{
 		Connection con = null;
 		PreparedStatement ps = null;
@@ -175,7 +175,7 @@ public class PersonaDAO {
 			ps.setString(4, p.getEmail());
 			ps.setString(5, p.getPais());
 			ps.setString(6, p.getCiudad());
-			ps.setLong(7, p.getId());
+			ps.setLong(7, Integer.parseInt(id));
 			
 			ps.executeUpdate();
 		}

@@ -96,12 +96,12 @@ public class PersonaResource
 	@Path("{id}")
 	@Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
 	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-	public Response updatePersona(JAXBElement<Persona> element)
+	public Response updatePersona(JAXBElement<Persona> element, @PathParam("id") String id)
 	{
 		Persona p = element.getValue();
 		try 
 		{
-			this.personaDAO.updatePersona(p);
+			this.personaDAO.updatePersona(p, id);
 		} catch (BaseException e) {
 			log.error("getPersona() - Error actualizando objeto", e);
 			throw new WebApplicationException(Response.Status.INTERNAL_SERVER_ERROR);
