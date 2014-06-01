@@ -17,11 +17,24 @@
     	<property name="connectionManager"><ref bean="connectionManager"></ref></property>
     </bean>
     
+    <bean id="titulacionDAO" class="es.itv.model.data.dao.TitulacionDAO">
+    	<property name="connectionManager"><ref bean="connectionManager"></ref></property>
+    </bean>
+    
+    <bean id="asignaturaDAO" class="es.itv.model.data.dao.AsignaturaDAO">
+    	<property name="connectionManager"><ref bean="connectionManager"></ref></property>
+    </bean>
+    
     <bean id="hello" class="es.itv.test.Hello">
     	<property name="personaDAO"><ref bean="personaDAO"></ref></property>
     </bean>
     
     <bean id="personaResource" class="es.itv.rest.PersonaResource">
     	<property name="personaDAO"><ref bean="personaDAO"></ref></property>
+    </bean>
+    
+    <bean id="titulacionResource" class="es.itv.rest.TitulacionResource">
+    	<property name="titulacionDAO"><ref bean="titulacionDAO"></ref></property>
+    	<property name="asignaturaDAO"><ref bean="asignaturaDAO"></ref></property>
     </bean>
 </beans>
